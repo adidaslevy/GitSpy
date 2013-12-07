@@ -15,6 +15,7 @@ from xml.etree.ElementTree import *
 import ConfigParser
 from git import *
 
+
 CONFIG			= ".GitSpy_agent.ini"
 REPO_SECTION 	= "repository"
 SERVER_SECTION	= "server"
