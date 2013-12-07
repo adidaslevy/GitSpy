@@ -45,7 +45,9 @@ class GetHandler(BaseHTTPRequestHandler):
 			body = self.rfile.read(bodyLen)
 			commit = ET.fromstring(body)
 			
-			tree.append(commit)
+			
+			allcommits = tree.find(ALL_COMMITS)
+			allcommits.append(commit)		
 			tree.write(AGGREGATION_FILE)
 			self.__return_response()
 		except Exception as e:
@@ -68,8 +70,6 @@ def main():
 		print ("xml file doesn't exists, exiting")
 		sys.exit(1)
 
-	# check that the root element exists, if not, create it.
-	
 	# run server
 	try:
 		server = HTTPServer((ip,port), GetHandler)
