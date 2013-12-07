@@ -7,6 +7,8 @@ from BaseHTTPServer import BaseHTTPRequestHandler
 import sys
 from os import path
 from xml.etree.ElementTree import *
+import xml.etree.ElementTree as ET
+
 
 AGGREGATION_FILE 	= "/var/log/GitSpy/commitAggregations.xml"
 ALL_COMMITS			= "allcommits"
@@ -41,8 +43,7 @@ class GetHandler(BaseHTTPRequestHandler):
 		try:
 			bodyLen = int(self.headers['Content-Length']) 
 			body = self.rfile.read(bodyLen)
-			print body
-			commit = ElementTree.fromstring(body)
+			commit = ET.fromstring(body)
 			
 			tree.append(commit)
 			tree.write(AGGREGATION_FILE)
