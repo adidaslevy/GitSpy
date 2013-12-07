@@ -24,7 +24,7 @@ def ReadConfiguration(section):
 	config = ConfigParser.ConfigParser()
 	config.read(CONFIG)
 	print section
-	if (not config.has_section(section))
+	if (not config.has_section(section)):
 		print "Cannot run GitSpy - Configuration file corrupted"
 		sys.exit(1)
 
