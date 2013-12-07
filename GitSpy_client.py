@@ -13,7 +13,7 @@ import subprocess
 from os import path
 import urllib2
 from xml.etree.ElementTree import *
-from xml.etree.ElementTree import tostring
+import xml.etree.ElementTree as ET
 import ConfigParser
 from git import *
 
@@ -96,7 +96,7 @@ def constructChangeXML(author, date, message, diffInfo):
 		
 		diffElem.text = out
 		commitElem.append(diffElem)
-	xmlstr = ElementTree.tostring(diffElem, encoding='utf8', method='xml')
+	xmlstr = ET.tostring(diffElem, encoding='utf8', method='xml')
 	return xmlstr
 
 def TransmitCommit(post_data):
