@@ -13,6 +13,7 @@ import subprocess
 from os import path
 import urllib2
 from xml.etree.ElementTree import *
+from xml.etree.ElementTree import tostring
 import ConfigParser
 from git import *
 
