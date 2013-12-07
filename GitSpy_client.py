@@ -137,7 +137,7 @@ def TransmitCommit(post_data):
 		
 def main():
 	import logging.config
-    logging.config.fileConfig('~/.GitSpy_log.conf')
+	logging.config.fileConfig('~/.GitSpy_log.conf')
 
 	# Get repository path/name
 	repoConfigItems = ReadConfiguration(REPO_SECTION)
