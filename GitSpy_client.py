@@ -128,7 +128,7 @@ def main():
 	tree = constructChangeXML(author, date, message, diffinfo)
 
 	# transmit
-	transmitCommit(tree)
+	TransmitCommit(tree)
 	
 	
 	
