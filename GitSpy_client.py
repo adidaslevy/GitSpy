@@ -30,8 +30,8 @@ def GatherCommitContent(repoName):
 	'''
 	repo = Repo(repoName)
 	commitList = list(repo.iter_commits())
-	name = commitList[0].author
-	author = str(name.author)
+	name = commitList[0].committer
+	s = name.author
 	date = str(commitList[0].committed_date)
 	message = str(commitList[0].message)
 	
@@ -53,7 +53,7 @@ def GatherCommitContent(repoName):
 			absPath = x.b_blob.abspath 
 		diffInfo[absPath] = (ablob, bblob)
 
-	return (author, date, message, diffInfo)
+	return (s, date, message, diffInfo)
 
 def constructChangeXML(author, date, message, diffInfo):
 	''' 
