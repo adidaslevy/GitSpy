@@ -1,7 +1,14 @@
-bla bla bla bla bla
-123456
-sgzgdgssgx
-BLA BLA BLA	fxhfcchhc zgexhdh
-333535366
 
-dxhdhxxhd iiiii
+
+Welcome to GitSpy 0.1
+
+Installation
+===========
+
+GitSpy uses easy install, In order to obtain it, type in the following commands: 
+
+sudo wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+
+sudo python ez_setup.py
+
+
