@@ -108,6 +108,7 @@ def TransmitCommit(post_data):
 	ip = "127.0.0.1"
 	port = 3006
 	try:
+		print post_data
 		urllib2.urlopen('http://{0}:{1}/'.format(ip, port), post_data)
 	except urllib2.URLError, e:
 		status = 1
