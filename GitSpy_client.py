@@ -69,7 +69,6 @@ def constructChangeXML(author, date, message, diffInfo):
 	And will save it to a file, where configuration stated
 	'''
 	commitElem = Element('commit', {'author':author, 'date':date, 'message':message})
-	print ET.tostring(commitElem)
 	for diff in diffInfo:
 		diffElem = Element('diff', {'path':diff})
 		
@@ -97,7 +96,7 @@ def constructChangeXML(author, date, message, diffInfo):
 		
 		diffElem.text = out
 		commitElem.insert(diffElem)
-	xmlstr = ET.tostring(diffElem, encoding='utf8', method='xml')
+	xmlstr = ET.tostring(commitElem)
 	return xmlstr
 
 def TransmitCommit(post_data):
