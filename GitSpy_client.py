@@ -122,9 +122,7 @@ def TransmitCommit(post_data):
 def main():
 
 	# Get repository path/name
-	repopath = path.abspath(path.dirname( __file__ ))
-	print repopath
-	(author, date, message, diffinfo) = GatherCommitContent(path.abspath(path.join(path.join(path.dirname( __file__ ), '..'), '..')))
+	(author, date, message, diffinfo) = GatherCommitContent(path.abspath(path.dirname( __file__ )))
 
 	# build the xml for transmission
 	tree = constructChangeXML(author, date, message, diffinfo)
