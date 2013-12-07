@@ -14,9 +14,6 @@ import urllib2
 from xml.etree.ElementTree import *
 import ConfigParser
 from git import *
-import logging
-
-logger = logging.getLogger(__name__)
 
 CONFIG			= ".GitSpy_agent.ini"
 REPO_SECTION 	= "repository"
@@ -67,7 +64,6 @@ def GatherCommitContent(repoName):
 			absPath = x.b_blob.abspath 
 		diffInfo[absPath] = (ablob, bblob)
 
-	logger.info("User perfomed commit: " + author + " " + message + " " + str(diffInfo))        
 	return (author, date, message, diffInfo)
 
 def constructChangeXML(author, date, message, diffInfo):
@@ -136,8 +132,6 @@ def TransmitCommit(post_data):
 		print '</vps.device.response>'
 		
 def main():
-	import logging.config
-	logging.config.fileConfig('~/.GitSpy_log.conf')
 
 	# Get repository path/name
 	repoConfigItems = ReadConfiguration(REPO_SECTION)
