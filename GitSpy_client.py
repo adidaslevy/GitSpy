@@ -125,20 +125,16 @@ def TransmitCommit(post_data):
 	try:
 		urllib2.urlopen('http://{0}:{1}/'.format(ip, port), post_data)
 	except urllib2.URLError, e:
-        status = 1
-        msg = error('Failed to transmit commit data: {0}'.format(e))
+		status = 1
+		msg = error('Failed to transmit commit data: {0}'.format(e))
 
-    if status:
-        print "Status: 400 {0}".format(msg)
-        print
+	if status:
+		print "Status: 400 {0}".format(msg)
     
-    else:
-        print ''.format(status, msg)
-        print '</vps.device.response>'
+	else:
+		print ''.format(status, msg)
+		print '</vps.device.response>'
 		
-	
-	
-
 def main():
 	import logging.config
     logging.config.fileConfig('~/.GitSpy_log.conf')
