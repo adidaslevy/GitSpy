@@ -41,6 +41,7 @@ class GetHandler(BaseHTTPRequestHandler):
 		try:
 			bodyLen = int(self.headers['Content-Length']) 
 			body = self.rfile.read(bodyLen)
+			print body
 			commit = ElementTree.fromstring(body)
 			
 			tree.append(commit)
