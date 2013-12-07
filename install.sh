@@ -4,8 +4,6 @@
 
 TMP=/tmp
 LOG_LOC=/var/log/GitSpy/
-CLIENT_CONFIG_FILENAME=.GitSpy_agent.ini
-SERVER_CONFIG_FILENAME=.GitSpy_server.ini
 CONF_LOC=~/
 
 WORKING_DIR=`pwd`
@@ -16,6 +14,7 @@ port=3006
 ########### MAIN ###########
 #prepare dirs
 [ -d $LOG_LOC ] || sudo mkdir -p $LOG_LOC
+cp commitAggregations.xml $LOG_LOC
 
 # install GitPython
 which easy_install &>/dev/null
@@ -41,7 +40,6 @@ cd /
 repos=`locate ".git" | grep -v "gitignore" | grep -v ".git/"`
 
 cd $WORKING_DIR
-cp .GitSpy_log.conf $CONF_LOC
 
 for repo in $repos; do
 	sudo cp GitSpy_client.py $repo/hooks
