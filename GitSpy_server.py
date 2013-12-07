@@ -49,6 +49,7 @@ class GetHandler(BaseHTTPRequestHandler):
 			tree.write(AGGREGATION_FILE)
 			self.__return_response()
 		except Exception as e:
+			print str(e)
 			self.__return_error('something went wrong ' + str(e))
       
 		return
