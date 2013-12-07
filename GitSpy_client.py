@@ -31,8 +31,8 @@ def GatherCommitContent(repoName):
 	repo = Repo(repoName)
 	commitList = list(repo.iter_commits())
 	author = str(commitList[0].author)
-	date = commitList[0].committed_date
-	message = commitList[0].message
+	date = str(commitList[0].committed_date)
+	message = str(commitList[0].message)
 	
 	# Gather all diffs, and absolute paths
 	diffInfo = {}
