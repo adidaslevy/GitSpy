@@ -30,7 +30,8 @@ def GatherCommitContent(repoName):
 	'''
 	repo = Repo(repoName)
 	commitList = list(repo.iter_commits())
-	author = str(commitList[0].author.name)
+	name = commitList[0].author
+	author = name.author
 	date = str(commitList[0].committed_date)
 	message = str(commitList[0].message)
 	
