@@ -96,7 +96,8 @@ def constructChangeXML(author, date, message, diffInfo):
 		
 		diffElem.text = out
 		commitElem.append(diffElem)
-	return commitElem.toString()
+	diffTree._setroot(commitElem)
+	return ElementTree.tostring(commitElem)
 
 def TransmitCommit(post_data):
 	'''
