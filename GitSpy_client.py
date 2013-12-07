@@ -77,6 +77,7 @@ def constructChangeXML(author, date, message, diffInfo):
 		command = ['git', 'diff']
 		command.append(diffInfo[diff][0])
 		command.append(diffInfo[diff][1])
+		
 		try:
 			print command
 			cmd = subprocess.Popen(command, stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
