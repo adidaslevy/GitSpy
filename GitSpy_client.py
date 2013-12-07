@@ -42,12 +42,12 @@ def GatherCommitContent(repoName):
 		
 		if (x.a_blob is not None):
 			# grab a side info
-			ablob = x.a_blob
+			ablob = x.a_blob.hexsha
 			absPath = x.a_blob.abspath
 
 		if (x.b_blob is not None):
 			# grsb b side info
-			bblob = x.a_blob
+			bblob = x.a_blob.hexsha
 			absPath = x.b_blob.abspath 
 		diffInfo[absPath] = (ablob, bblob)
 
