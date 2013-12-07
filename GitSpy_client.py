@@ -70,7 +70,7 @@ def constructChangeXML(author, date, message, diffInfo):
 	diffTree = ElementTree()
 	commitElem = Element('commit', {'author':author, 'date':date, 'message':message})
 	for diff in diffInfo:
-		diffElem = element('diff', {'path':diff})
+		diffElem = Element('diff', {'path':diff})
 		
 		# get the diff text from git, using the blobs
 		command = ['git', 'diff']
