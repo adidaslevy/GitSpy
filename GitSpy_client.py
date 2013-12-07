@@ -10,28 +10,13 @@ Description: This GitSpy client will be activated upon 2 hooks:
 '''
 import sys
 import subprocess
+from os import path
 import urllib2
 from xml.etree.ElementTree import *
 import ConfigParser
 from git import *
 
 
-CONFIG			= ".GitSpy_agent.ini"
-REPO_SECTION 	= "repository"
-SERVER_SECTION	= "server"
-
-
-def ReadConfiguration(section):
-	config = ConfigParser.ConfigParser()
-	config.read(CONFIG)
-	print section
-	if (not config.has_section(section)):
-		print "Cannot run GitSpy - Configuration file corrupted"
-		sys.exit(1)
-
-	# return item lists
-	return config.items(section)
-	
 def GatherCommitContent(repoName):
 	'''
 	This function creates a data structure with all commit information gathered on last commit done
@@ -119,7 +104,8 @@ def TransmitCommit(post_data):
 	This function gets content to transmit to server
 	server details are read from config file
 	'''
-	(ip, port) = ReadConfiguration(SERVER_SECTION)
+	ip = "127.0.0.1"
+	port = 3006
 	try:
 		urllib2.urlopen('http://{0}:{1}/'.format(ip, port), post_data)
 	except urllib2.URLError, e:
@@ -136,8 +122,7 @@ def TransmitCommit(post_data):
 def main():
 
 	# Get repository path/name
-	repoConfigItems = ReadConfiguration(REPO_SECTION)
-	(author, date, message, diffinfo) = GatherCommitContent(repoConfigItems["repository_name"])
+	(author, date, message, diffinfo) = GatherCommitContent(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..')))
 
 	# build the xml for transmission
 	tree = constructChangeXML(author, date, message, diffinfo)
