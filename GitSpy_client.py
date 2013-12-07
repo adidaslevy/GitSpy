@@ -23,7 +23,8 @@ SERVER_SECTION	= "server"
 def ReadConfiguration(section):
 	config = ConfigParser.ConfigParser()
 	config.read(CONFIG)
-	if (not config.has_section(section)):
+	print section
+	if (not config.has_section(section))
 		print "Cannot run GitSpy - Configuration file corrupted"
 		sys.exit(1)
 
