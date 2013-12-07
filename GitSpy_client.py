@@ -97,7 +97,7 @@ def constructChangeXML(author, date, message, diffInfo):
 			cmd = subprocess.Popen(command, stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		except OSError:
 			logger.error("Command: " + command + " Doesn't exist.")
-            print "Command: " + command + " Doesn't exist. "
+			print "Command: " + command + " Doesn't exist. "
 			sys.exit(1)
 		except ValueError:
 			logger.error("Unable to create a subprocess, please contact your system administrator, skipping post work")
@@ -106,10 +106,10 @@ def constructChangeXML(author, date, message, diffInfo):
 
 		out,err = cmd.communicate()
 
-        if (cmd.returncode != 0):
+		if (cmd.returncode != 0):
 			logger.error("Command: " + commandForLog + " returned an error, : " + str(err))
-            print "Command: " + commandForLog + " returned an error, : " + str(err)  
-            sys.exit(1)
+			print "Command: " + commandForLog + " returned an error, : " + str(err)  
+			sys.exit(1)
 		
 		diffElem.text = out
 		commitElem.append(diffElem)
