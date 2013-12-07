@@ -95,7 +95,7 @@ def constructChangeXML(author, date, message, diffInfo):
 			sys.exit(1)
 		
 		diffElem.text = out
-		commitElem.insert(diffElem)
+		commitElem.append(diffElem)
 	xmlstr = ET.tostring(commitElem)
 	return xmlstr
 
