@@ -104,20 +104,20 @@ def TransmitCommit(post_data):
 	This function gets content to transmit to server
 	server details are read from config file
 	'''
+	status = 0
 	ip = "127.0.0.1"
 	port = 3006
 	try:
 		urllib2.urlopen('http://{0}:{1}/'.format(ip, port), post_data)
 	except urllib2.URLError, e:
 		status = 1
-		msg = error('Failed to transmit commit data: {0}'.format(e))
+		msg = 'Failed to transmit commit data: {0}'.format(e)
 
 	if status:
 		print "Status: 400 {0}".format(msg)
     
 	else:
 		print ''.format(status, msg)
-		print '</vps.device.response>'
 		
 def main():
 
