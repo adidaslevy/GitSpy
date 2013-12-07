@@ -91,8 +91,6 @@ def constructChangeXML(author, date, message, diffInfo):
 			sys.exit(1)
 
 		out,err = cmd.communicate()
-		print out
-		print err
 
 		if (cmd.returncode != 0):
 			logger.error("Command: " + commandForLog + " returned an error, : " + str(err))
